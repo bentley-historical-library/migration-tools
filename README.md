@@ -1,5 +1,3 @@
-# migration-tools
-
 Migration Tools
 ===============
 
