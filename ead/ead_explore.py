@@ -24,7 +24,7 @@ def split_sentence_into_parts(sentence):
 	return discrete_items
 
 
-def normalize(discrete_extents, include_size=False):
+def normalize_extent_list(discrete_extents, include_size=False):
 	# Normalizes a list of extents by type, returning the results in a new list
 	# If include_size is set to True, it will also record the accompanying size of the extent, returning the results
 	# as a list of lists
