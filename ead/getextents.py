@@ -1,5 +1,4 @@
 # import what we need
-import lxml
 from lxml import etree
 import csv
 import os
@@ -29,22 +28,19 @@ def getextents(xpath):
     for filename in os.listdir(ead_path):
         tree = etree.parse(join(ead_path, filename))
         # keep up with where we are
-        print "Processing ", filename
+        print("Processing " + filename)
         # parse and go through all component extents
         extents = tree.xpath(xpath)
-        for i in extents:
+        for extent in extents:
             # identify blank extents
-            extent = i.text
-            extent_path = tree.getpath(i)
+            extent_text = extent.text
+            extent_path = tree.getpath(extent)
             with open(output_csv, 'ab') as csvfile:
                 writer = csv.writer(csvfile, dialect='excel')
                 try:
-                    writer.writerow([filename, extent_path, extent])
+                    writer.writerow([filename, extent_path, extent_text])
                 except:
                     writer.writerow([filename, extent_path, 'ISSUE EXTENT'])
-
-# close the csv
-csvfile.close()
                 
 # get extents       
 getextents(all_extents) # <-- you'll have to change this to get the extents you want, "top level," component level or all (i want all)
