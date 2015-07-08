@@ -7,7 +7,7 @@ from lxml import etree as ET
 import re
 
 from constants import persnames_dictionary
-# from constants import corpnames_dictionary
+from constants import corpnames_dictionary
 
 # where are the eads?
 ead_path_test = 'C:/Users/Public/Documents/Real_Masters_all'
@@ -38,7 +38,9 @@ for filename in os.listdir(ead_path_production):
             print '\rWorking on it... -',
             print '\rWorking on it... -',
             print '\rWorking on it... \\',
-            # persname <-- could be function!
+            # persname
+            if sub.tag == 'persname' and 'authfilenumber' in sub.attrib:
+                del sub.attrib["authfilenumber"]
             if sub.tag == 'persname' and sub.text is not None and '--' not in sub.text:
                 original = sub.text.strip()
                 if original in persnames_dictionary:
@@ -48,15 +50,17 @@ for filename in os.listdir(ead_path_production):
                     outfile = open(join(ead_path_production, filename), 'w')
                     outfile.write(ET.tostring(ead_tree, encoding="utf-8", xml_declaration=True))
                     outfile.close()
-            # # corpname 
-            # if sub.tag == 'corpname' and sub.text is not None and '--' not in sub.text:
-                # original = sub.text.strip()
-                # if original in corpnames_dictionary:
-                    # corpname_xpath = ead_tree.getpath(sub)
-                    # corpname_update = ead_tree.xpath(corpname_xpath)
-                    # corpname_update[0].attrib['authfilenumber'] = corpnames_dictionary[original]
-                    # outfile = open(join(ead_path_production, filename), 'w')
-                    # outfile.write(ET.tostring(ead_tree, encoding="utf-8", xml_declaration=True))
-                    # outfile.close()
+            # corpname 
+            if sub.tag == 'corpname' and 'authfilenumber' in sub.attrib:
+                del sub.attrib["authfilenumber"]
+            if sub.tag == 'corpname' and sub.text is not None and '--' not in sub.text:
+                original = sub.text.strip()
+                if original in corpnames_dictionary:
+                    corpname_xpath = ead_tree.getpath(sub)
+                    corpname_update = ead_tree.xpath(corpname_xpath)
+                    corpname_update[0].attrib['authfilenumber'] = corpnames_dictionary[original]
+                    outfile = open(join(ead_path_production, filename), 'w')
+                    outfile.write(ET.tostring(ead_tree, encoding="utf-8", xml_declaration=True))
+                    outfile.close()
                     
 print '\rUpdated EADs. Woo hoo!'
