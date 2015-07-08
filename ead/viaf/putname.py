@@ -19,7 +19,7 @@ xml = re.compile('\.xml$')
 # controlaccess xpath
 controlaccess_xpath = '//ead/archdesc//controlaccess/*'
 
-print 'Deleting existing authfileno attributes.'
+print 'Deleting existing authfilenumber attributes.'
 
 # go through the files
 for filename in os.listdir(ead_path_production):
