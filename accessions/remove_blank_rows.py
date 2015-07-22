@@ -1,3 +1,13 @@
+'''
+From A-Team meeting on 2015-07-22...
+
+Check core fields: if blank, then it’s probably not a good record
+  * Name
+  * Description
+  * Processing status (?)
+  
+DECISION: Incomplete records of legacy accession are not valuable--it’s OK if not all these go in.'''
+
 import csv
 
 # we need to rewrite this csv with no null bytes
