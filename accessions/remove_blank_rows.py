@@ -10,6 +10,7 @@ DECISION: Incomplete records of legacy accession are not valuable--it's OK if no
 
 import csv
 import os
+from tqdm import *
 
 # we need to rewrite this csv with no null bytes
 csv_exported = open('C:/Users/Public/Documents/accessions/accessions-20150722-original.csv', 'rb')
@@ -33,7 +34,7 @@ with open('C:/Users/Public/Documents/accessions/accessions-20150722-final.csv', 
 # rewrite the csv, removing blank rows
 with open('C:/Users/Public/Documents/accessions/accessions-20150722-temp.csv','rb') as csv_temp_take_two:
     csv_temp_take_two_reader = csv.reader(csv_temp_take_two)
-    for row in csv_temp_take_two_reader:
+    for row in tqdm(csv_temp_take_two_reader, total=19253):
         #if there is no accessionid, the row is entirely blank
         accession_id = row[2]
         if len(accession_id) == 0:
