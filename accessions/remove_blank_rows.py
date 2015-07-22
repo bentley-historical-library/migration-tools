@@ -35,10 +35,32 @@ with open('C:/Users/Public/Documents/accessions/accessions-20150722-final.csv', 
 with open('C:/Users/Public/Documents/accessions/accessions-20150722-temp.csv','rb') as csv_temp_take_two:
     csv_temp_take_two_reader = csv.reader(csv_temp_take_two)
     for row in tqdm(csv_temp_take_two_reader, total=19253):
-        #if there is no accessionid, the row is entirely blank
+        # if there is no accessionid, the row is entirely blank
         accession_id = row[2]
         if len(accession_id) == 0:
             continue
+        # core fields
+        contact = []
+        first_name = row[20]
+        if len(first_name) > 0:
+            contact.append(first_name)
+        last_name = row[21]
+        if len(last_name) > 0:
+            contact.append(last_name)
+        middle_name = row[22]
+        if len(middle_name) > 0:
+            contact.append(middle_name)
+        organization_or_unit = row[23]
+        if len(organization_or_unit) > 0:
+            contact.append(organization_or_unit)
+        suffix = row[24]
+        if len(suffix) > 0:
+            contact.append(suffix)
+        title = row[25]    
+        if len(title) > 0:
+            contact.append(title)
+        accession_description = row[0]
+        processing_status = row[35]
         else:
             with open('C:/Users/Public/Documents/accessions/accessions-20150722-final.csv', 'ab') as csv_final_take_two:
                 csv_final_take_two_writer = csv.writer(csv_final_take_two, dialect='excel')
