@@ -61,6 +61,7 @@ with open('C:/Users/Public/Documents/accessions/accessions-20150722-temp.csv','r
             contact.append(title)
         accession_description = row[0]
         processing_status = row[35]
+        # logic
         if len(accession_id) == 0:
             continue
         if len(accession_date) == 0:
