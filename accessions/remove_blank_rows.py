@@ -42,24 +42,25 @@ with open('C:/Users/Public/Documents/accessions/accessions-20150722-temp.csv','r
         # core fields
         contact = []
         first_name = row[20]
-        contact.append(first_name)
+        if len(first_name) > 0:
+            contact.append(first_name)
         last_name = row[21]
-        contact.append(last_name)
+        if len(last_name) > 0:
+            contact.append(last_name)
         middle_name = row[22]
-        contact.append(middle_name)
+        if len(middle_name) > 0:
+            contact.append(middle_name)
         organization_or_unit = row[23]
-        contact.append(organization_or_unit)
+        if len(organization_or_unit) > 0:
+            contact.append(organization_or_unit)
         suffix = row[24]
-        contact.append(suffix)
+        if len(suffix) > 0:
+            contact.append(suffix)
         title = row[25]    
-        contact.append(title)
-        print contact
+        if len(title) > 0:
+            contact.append(title)
         accession_description = row[0]
         processing_status = row[35]
-        if len(contact) == 0 and len(accession_description) == 0:
-            continue
-        if len(processing_status) == 0 or processing_status == 'Completed':
-            continue
         else:
             with open('C:/Users/Public/Documents/accessions/accessions-20150722-final.csv', 'ab') as csv_final_take_two:
                 csv_final_take_two_writer = csv.writer(csv_final_take_two, dialect='excel')
