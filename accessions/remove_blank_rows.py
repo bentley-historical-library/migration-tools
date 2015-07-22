@@ -64,11 +64,12 @@ with open('C:/Users/Public/Documents/accessions/accessions-20150722-temp.csv','r
         # logic
         if len(accession_id) == 0:
             continue
-        if len(accession_date) == 0:
-            if len(contact) == 0 and len(accession_description) == 0:
-                continue
-            if len(processing_status) == 0 or processing_status.strip() == 'Completed':
-                continue
+        if len(accession_date) == 0 and processing_status == 'Backlog':
+            with open('C:/Users/Public/Documents/accessions/accessions-20150722-final.csv', 'ab') as csv_final_take_two:
+                csv_final_take_two_writer = csv.writer(csv_final_take_two, dialect='excel')
+                csv_final_take_two_writer.writerow(row)
+        if len(accession_date) == 0 and len(contact) == 0 and len(accession_description) == 0:
+            continue
         else:
             with open('C:/Users/Public/Documents/accessions/accessions-20150722-final.csv', 'ab') as csv_final_take_two:
                 csv_final_take_two_writer = csv.writer(csv_final_take_two, dialect='excel')
