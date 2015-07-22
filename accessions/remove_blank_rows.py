@@ -37,8 +37,6 @@ with open('C:/Users/Public/Documents/accessions/accessions-20150722-temp.csv','r
     for row in tqdm(csv_temp_take_two_reader, total=19253):
         # if there is no accessionid, the row is entirely blank
         accession_id = row[2]
-        if len(accession_id) == 0:
-            continue
         # core fields
         contact = []
         first_name = row[20]
@@ -59,8 +57,11 @@ with open('C:/Users/Public/Documents/accessions/accessions-20150722-temp.csv','r
         title = row[25]    
         if len(title) > 0:
             contact.append(title)
+        print contact
         accession_description = row[0]
         processing_status = row[35]
+        if len(accession_id) == 0:
+            continue
         else:
             with open('C:/Users/Public/Documents/accessions/accessions-20150722-final.csv', 'ab') as csv_final_take_two:
                 csv_final_take_two_writer = csv.writer(csv_final_take_two, dialect='excel')
