@@ -9,6 +9,7 @@ Check core fields: if blank, then it's probably not a good record
 DECISION: Incomplete records of legacy accession are not valuable--it's OK if not all these go in.'''
 
 import csv
+import os
 
 # we need to rewrite this csv with no null bytes
 csv_exported = open('C:/Users/Public/Documents/accessions/accessions-20150722-original.csv', 'rb')
@@ -41,3 +42,6 @@ with open('C:/Users/Public/Documents/accessions/accessions-20150722-temp.csv','r
             with open('C:/Users/Public/Documents/accessions/accessions-20150722-final.csv', 'ab') as csv_final_take_two:
                 csv_final_take_two_writer = csv.writer(csv_final_take_two, dialect='excel')
                 csv_final_take_two_writer.writerow(row)
+                
+# delete the temporary csv
+os.remove('C:/Users/Public/Documents/accessions/accessions-20150722-temp.csv')
