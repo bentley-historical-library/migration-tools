@@ -59,6 +59,7 @@ with open('C:/Users/Public/Documents/accessions/accessions-20150722-temp.csv','r
         title = row[25]    
         if len(title) > 0:
             contact.append(title)
+        donor_number = row[26]
         accession_description = row[0]
         processing_status = row[35]
         # logic
@@ -68,7 +69,7 @@ with open('C:/Users/Public/Documents/accessions/accessions-20150722-temp.csv','r
             with open('C:/Users/Public/Documents/accessions/accessions-20150722-final.csv', 'ab') as csv_final_take_two:
                 csv_final_take_two_writer = csv.writer(csv_final_take_two, dialect='excel')
                 csv_final_take_two_writer.writerow(row)
-        if len(accession_date) == 0 and len(contact) == 0 and len(accession_description) == 0:
+        if len(accession_date) == 0 and len(accession_description) == 0 and (len(contact) == 0 or len(donor_number) == 0):
             continue
         else:
             with open('C:/Users/Public/Documents/accessions/accessions-20150722-final.csv', 'ab') as csv_final_take_two:
