@@ -14,9 +14,9 @@ controlaccess_xpath = '//ead/archdesc//controlaccess/*'
 origination_xpath = '//ead/archdesc//origination/*'
 
 # go through the xml files
-for filename in tqdm(os.listdir(ead_path_test)):
+for filename in tqdm(os.listdir(ead_path_production)):
     if filename.endswith('.xml'):
-        ead_tree = ET.parse(join(ead_path_test, filename))
+        ead_tree = ET.parse(join(ead_path_production, filename))
         controlaccess_subelement_dictionary = {}
         # make a dictionary of controlaccess subelement text and authfilenumbers
         for controlaccess_subelement in ead_tree.xpath(controlaccess_xpath):
@@ -27,6 +27,6 @@ for filename in tqdm(os.listdir(ead_path_test)):
             if origination_subelement.text in controlaccess_subelement_dictionary:
                 origination_subelement.set('authfilenumber', controlaccess_subelement_dictionary[origination_subelement.text])
     # write the files, and pretty print
-    outfile = open(join(ead_path_test, filename), 'w')
+    outfile = open(join(ead_path_production, filename), 'w')
     outfile.write(ET.tostring(ead_tree, pretty_print=True, encoding="utf-8", xml_declaration=True))
     outfile.close()
