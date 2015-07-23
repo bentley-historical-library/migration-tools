@@ -9,7 +9,7 @@ ead_path = 'C:/Users/eckardm/GitHub/vandura/Real_Masters_all'
 
 # where are the output files?
 persname_output = 'persname.csv'
-famname_output = 'geogname.csv'
+famname_output = 'famname.csv'
 corpname_output = 'corpname.csv'
 
 # headers
