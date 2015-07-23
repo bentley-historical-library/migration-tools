@@ -68,8 +68,8 @@ with open(persname_temp, 'wb') as persname_csv:
 for dictionary_item in tqdm(list):
     if dictionary_item['Type'] == 'persname':
         persname_row = ['persname', 'TRUE']
-        if 'authfilenumber' in dictionary_item:
-            persname_row.append(dictionary_item['authfilenumber'])
+        if 'Authority ID' in dictionary_item:
+            persname_row.append(dictionary_item['Authority ID'])
         else:
             persname_row.append('')
         if 'source' in dictionary_item:
@@ -102,8 +102,8 @@ with open(famname_temp, 'wb') as famname_csv:
 for dictionary_item in tqdm(list):        
     famname_row = ['famname', 'TRUE']
     if dictionary_item['Type'] == 'famname':
-        if 'authfilenumber' in dictionary_item:
-            famname_row.append(dictionary_item['authfilenumber'])
+        if 'Authority ID' in dictionary_item:
+            famname_row.append(dictionary_item['Authority ID'])
         else:
             famname_row.append('')
         if 'source' in dictionary_item:
@@ -135,8 +135,8 @@ with open(corpname_temp, 'wb') as corpname_csv:
 for dictionary_item in tqdm(list):          
     corpname_row = ['corpname', 'TRUE']
     if dictionary_item['Type'] == 'corpname':
-        if 'corpfilenumber' in dictionary_item:
-            corpname_row.append(dictionary_item['authfilenumber'])
+        if 'Authority ID' in dictionary_item:
+            corpname_row.append(dictionary_item['Authority ID'])
         else:
             corpname_row.append('')
         if 'source' in dictionary_item:
