@@ -147,7 +147,7 @@ for dictionary_item in tqdm(list):
         corpname_row.append(dictionary_item['ORIGINAL'].encode('utf-8'))
         with open(corpname_temp, 'ab') as corpname_csv_take_two:
             corpname_writer = csv.writer(corpname_csv_take_two)
-            corpname_writer.writerow(famname_row)  
+            corpname_writer.writerow(corpname_row)  
             
 with open(corpname_temp, 'rb') as corpname_in, open(corpname_output, 'wb') as corpname_out:
     corpnames = set()
