@@ -20,18 +20,12 @@ corpname_headers = ['Type', 'Publish', 'Authority ID', 'Source', 'Rules', 'ORIGI
 # empty list
 list = []
 
-# empty dictionary
-
-
-# controlaccess xpath
-controlaccess_xpath = '//controlaccess/*'
-
 print 'Creating dictionary...'
 
 for filename in tqdm(os.listdir(ead_path)):
     if filename.endswith('.xml'):
         ead_tree = ET.parse(join(ead_path, filename))
-        for controlaccess_subelement in ead_tree.xpath(controlaccess_xpath):
+        for controlaccess_subelement in ead_tree.xpath('//*'):
             if (controlaccess_subelement.tag == 'persname' or controlaccess_subelement.tag == 'famname' or controlaccess_subelement.tag == 'corpname') and controlaccess_subelement.text is not None and '--' not in controlaccess_subelement.text:
                 dictionary = {}
                 dictionary['Type'] = controlaccess_subelement.tag
