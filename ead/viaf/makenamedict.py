@@ -1,86 +1,45 @@
-# import what we need
 import csv
+
+# you'll need to install fuzzywuzzy -- from a command line: 'pip install fuzzywuzzy'
 from fuzzywuzzy import fuzz
 
-csv.field_size_limit(1000000000)
+# where are the input files?
+persname_csv_filepath = 'path/to/persname/csv/output.csv'
+corpname_csv_filepath = 'path/to/corpname/csv/output.csv'
 
-# what's coming form openrefine?
-openrefine_persname_1 = 'openrefine_persname_1.csv'
-openrefine_persname_2 = 'openrefine_persname_2.csv'
-openrefine_corpname = 'openrefine_corpname.csv'
-
-# empty dictionaries
-persnames_dictionary = {}
-corpnames_dictionary = {}
-
-# print 'Creating persname dictionary.'
-
-# persnames
-def persnames(openrefine_persname):
-    with open(openrefine_persname, 'rb') as persnames:
-        openrefine_persname_reader = csv.reader(persnames)
-        # skip the first row
-        next(openrefine_persname_reader, None)
-        # make dictionary
-        for row in openrefine_persname_reader:
-            print '\rWorking on it... |',
-            print '\rWorking on it... /',
-            print '\rWorking on it... -',
-            print '\rWorking on it... \\',
-            print '\rWorking on it... |',
-            print '\rWorking on it... /',
-            print '\rWorking on it... -',
-            print '\rWorking on it... -',
-            print '\rWorking on it... \\',
-            original = row[0]
-            authority = row[1]
-            link = row[2]
-            if link is not None and link.startswith('http://id.loc.gov/authorities/names/'):
-                fuzz_ratio = fuzz.ratio(original, authority)
-                if fuzz_ratio >= 80:
-                    persnames_dictionary[original] = link
-                    
-persnames(openrefine_persname_1)               
-persnames(openrefine_persname_2)               
-            
-print '\rPersname dictionary created.'
-
-print 'Creating corpname dictionary.'
-
-# corpnames
-with open(openrefine_corpname, 'rb') as corpnames:
-    openrefine_corpname_reader = csv.reader(corpnames)
-    # skip the first row
-    next(openrefine_corpname_reader, None)
-    # make dictionary
-    for row in openrefine_corpname_reader:
-        print '\rWorking on it... |',
-        print '\rWorking on it... /',
-        print '\rWorking on it... -',
-        print '\rWorking on it... \\',
-        print '\rWorking on it... |',
-        print '\rWorking on it... /',
-        print '\rWorking on it... -',
-        print '\rWorking on it... -',
-        print '\rWorking on it... \\',
-        original = row[0]
-        authority = row[1]
-        link = row[2]
-        if link is not None and link.startswith('http://id.loc.gov/authorities/names/'):
-            fuzz_ratio = fuzz.ratio(original, authority)
-            if fuzz_ratio >= 80:
-                corpnames_dictionary[original] = link
-
-print '\rCorpname dictionary created.'
-
-print 'Writing to constants.'
-            
-# where is constants.py?
+# what should we name the output file?
 constants = 'constants.py'
 
-# put the dictionaries in constants.py
-with open(constants, "a") as txt_file:
-    txt_file.write('# dictionary for persnames\npersnames_dictionary = ' + str(persnames_dictionary))
-    txt_file.write('\n\n# dictionary for corpnames\ncorpnames_dictionary = ' + str(corpnames_dictionary))
+# sets up the authority dictionary. Contains a dictionary for each authority type you'll be parsing
+auth_dict = {'persnames': {}, 'corpnames': {}}
+
+
+# Function to populate the dictionaries
+# Takes a path to the input csv and an authority-type string ('persname', 'corpname', etc.).
+# The authority type should match one of the auth_dict keys
+def populate_dictionary(path_to_refined_csv, auth_type):
+    with open(path_to_refined_csv, 'rb') as f:
+        reader = csv.reader(f)
+        next(reader)  # skip the first row (this is assuming it starts with a header)
+
+        # update the dictionary
+        for row in reader:
+            original_name, lc_name, lc_link = row
+
+            if lc_link is not None and lc_link.startswith('http://id.loc.gov/authorities/names/'):
+                fuzz_ratio = fuzz.ratio(original_name, lc_name)
+                if fuzz_ratio >= 80:
+                    auth_dict[auth_type][original_name] = lc_link
+
+
+# call the function with our csv files as inputs
+populate_dictionary(persname_csv_filepath, auth_type='persnames')
+populate_dictionary(corpname_csv_filepath, auth_type='corpnames')
+
+
+# write the new dictionaries to constants.py
+with open(constants, "w") as txt_file:
+    txt_file.write('# dictionary for persnames\npersnames_dictionary = ' + str(auth_dict['persnames']))
+    txt_file.write('\n\n# dictionary for corpnames\ncorpnames_dictionary = ' + str(auth_dict['corpnames']))
     
 print 'Written to constants.'
