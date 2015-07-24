@@ -1,78 +1,45 @@
 '''
-step one of https://github.com/mcarruthers/LCNAF-Named-Entity-Reconciliation, hopefully we'll get some lcnaf or viaf out of this'''
+step one of https://github.com/mcarruthers/LCNAF-Named-Entity-Reconciliation
+'''
 
-import lxml
-from lxml import etree as ET
 import os
-from os.path import join
-import re
+from os import path
+
+# you'll need to install the following python modules -- should be as simple as running "pip install tqdm" and "pip install lxml" from the command-line
+# lxml is a powerful xml document parser, and tqdm is used to show a command-line progress bar as the script progresses
+from lxml import etree as ET
+from tqdm import tqdm
 
 # where are the eads?
-ead_path = 'C:/Users/eckardm/GitHub/vandura/Real_Masters_all'
+ead_path = 'path/to/eads'
 
-# where are the output files?
-persname_output = 'persname.txt'
-corpname_output = 'corpname.txt'
-geogname_output = 'geogname.txt'
+# tag names - set these to the tag types you want to capture the values of
+tag_names = ["persname", "corpname", "geogname", "genreform"]
 
-# empty_lists
-persname_list = []
-corpname_list = []
-geogname_list = []
+# initialize the dictionary we'll use to hold the tag names
+controlaccess_term_dictionary = {}
+for tag in tag_names:
+	controlaccess_term_dictionary[tag] = []
 
-# regex
-xml = re.compile('\.xml$')
+# xpath to where in the ead document we'll be looking for the given tag names
+controlaccess_xpath = '//controlaccess/*'
 
-# controlaccess xpath
-controlaccess_xpath = '//ead/archdesc//controlaccess/*'
+# go through the files
+for filename in tqdm(os.listdir(ead_path)):
+	# only look at xml files
+	if filename.endswith(".xml"):
+		# create lxml etree version of ead document
+		ead_tree = ET.parse(path.join(ead_path, filename))
 
-# error counter
-error_counter = 0
+		# go through the ead and grab all the text appearing in the tag types defined above
+		for sub in ead_tree.xpath(controlaccess_xpath):
+			for tag in tag_names:
+			    # we don't want to grab compound subject terms or empty strings
+				if tag in sub.tag and sub.text is not None and "--" not in sub.text:
+					controlaccess_term_dictionary[tag].append(sub.text.strip())
 
-# got through the files
-for filename in os.listdir(ead_path):
-    # only look at xml
-    if xml.search(filename):
-        print '\rWorking on it... |',
-        print '\rWorking on it... /',
-        print '\rWorking on it... -',
-        print '\rWorking on it... \\',
-        print '\rWorking on it... |',
-        print '\rWorking on it... /',
-        print '\rWorking on it... -',
-        print '\rWorking on it... -',
-        print '\rWorking on it... \\',
-        # parse
-        ead_tree = ET.parse(join(ead_path, filename))
-        # go through the eads
-        for sub in ead_tree.xpath(controlaccess_xpath):
-            # persname <-- could make these next three functions...
-            if sub.tag == 'persname' and sub.text is not None and '--' not in sub.text:
-                output = sub.text.strip()
-                if output not in persname_list:
-                    persname_list.append(output)
-            # corpname
-            elif sub.tag == 'corpname' and sub.text is not None and '--' not in sub.text:
-                output = sub.text.strip()
-                if output not in corpname_list: 
-                    corpname_list.append(output)
-            # geogname
-            if sub.tag == 'geogname' and sub.text is not None and '--' not in sub.text:
-                output = sub.text.strip()   
-                if output not in geogname_list:
-                    geogname_list.append(output)
-
-# output <-- could make these next three functions...
-for persname in persname_list:
-    with open(persname_output, 'a') as text_file:
-        text_file.write(persname.encode("utf-8") + '\n')
-        
-for corpname in corpname_list:
-        with open(corpname_output, 'a') as text_file:
-            text_file.write(corpname.encode("utf-8") + '\n')
-            
-for geogname in geogname_list:
-        with open(geogname_output, 'a') as text_file:
-            text_file.write(geogname.encode("utf-8") + '\n')
-                    
-print '\rThere were ' + str(error_counter) + ' errors!'
+# write all the names to a file - one file for each tag type
+for tag_type, names in controlaccess_term_dictionary.items():
+	with open(tag_type + ".txt", mode="w") as text_file:
+		for name in names:
+			text_file.write(name.encode("utf-8") + '\n')
