@@ -8,7 +8,7 @@ persname_csv_filepath = 'path/to/persname/csv/output.csv'
 corpname_csv_filepath = 'path/to/corpname/csv/output.csv'
 
 # what should we name the output file?
-constants = 'constants.py'
+output_file = 'constants.py'
 
 # sets up the authority dictionary. Contains a dictionary for each authority type you'll be parsing
 auth_dict = {'persnames': {}, 'corpnames': {}}
@@ -38,8 +38,8 @@ populate_dictionary(corpname_csv_filepath, auth_type='corpnames')
 
 
 # write the new dictionaries to constants.py
-with open(constants, "w") as txt_file:
+with open(output_file, "w") as txt_file:
     txt_file.write('# dictionary for persnames\npersnames_dictionary = ' + str(auth_dict['persnames']))
     txt_file.write('\n\n# dictionary for corpnames\ncorpnames_dictionary = ' + str(auth_dict['corpnames']))
     
-print 'Written to constants.'
+print('Written to {0}'.format(output_file))
