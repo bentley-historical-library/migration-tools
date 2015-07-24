@@ -16,7 +16,7 @@ ead_path = 'path/to/eads'
 # tag names - set these to the tag types you want to capture the values of
 tag_names = ["persname", "corpname", "geogname", "genreform"]
 
-# initialize the dictionary we'll use to hold the tag names
+# initializes the dictionary we'll use to hold the tag names
 controlaccess_term_dictionary = {}
 for tag in tag_names:
 	controlaccess_term_dictionary[tag] = []
