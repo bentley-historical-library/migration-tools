@@ -1,94 +1,53 @@
 # import what we need
 import os
-from os.path import join
-import csv
-import lxml
-from lxml import etree as ET
-import re
 
+from lxml import etree
+from tqdm import tqdm
+
+# requires the constants.py file made by the makedictionary.py script
 from constants import persnames_dictionary
 from constants import corpnames_dictionary
 
-# where are the eads?
-ead_path_test = 'C:/Users/Public/Documents/Real_Masters_all'
-ead_path_production = 'C:/Users/eckardm/GitHub/vandura/Real_Masters_all'
 
-# regex
-xml = re.compile('\.xml$')
+# where is your ead input directory, and where will you be saving the changed files to?
+input_dir = 'path/to/your/eads'
+output_dir = 'path/to/your/desired/output/directory'
 
-# controlaccess xpath
-controlaccess_xpath = '//ead/archdesc//controlaccess/*'
 
-print 'Deleting existing authfilenumber attributes.'
+# create the master authority dictionary by combining the persname and corpname dictionaries
+auth_dict = persnames_dictionary.copy()
+auth_dict.update(corpnames_dictionary)
 
-# go through the files
-for filename in os.listdir(ead_path_production):
-    # only look at xml
-    if xml.search(filename):
-        # parse
-        ead_tree = ET.parse(join(ead_path_production, filename))
-        # go through the eads
-        for sub in ead_tree.xpath(controlaccess_xpath):
-            print '\rWorking on it... |',
-            print '\rWorking on it... /',
-            print '\rWorking on it... -',
-            print '\rWorking on it... \\',
-            print '\rWorking on it... |',
-            print '\rWorking on it... /',
-            print '\rWorking on it... -',
-            print '\rWorking on it... -',
-            print '\rWorking on it... \\',
-            # delete persname
-            if sub.tag == 'persname' and 'authfilenumber' in sub.attrib:
-                del sub.attrib["authfilenumber"]
-                outfile = open(join(ead_path_production, filename), 'w')
-                outfile.write(ET.tostring(ead_tree, encoding="utf-8", xml_declaration=True))
-                outfile.close()
-            # delete corpname 
-            if sub.tag == 'corpname' and 'authfilenumber' in sub.attrib:
-                del sub.attrib["authfilenumber"]
-                outfile = open(join(ead_path_production, filename), 'w')
-                outfile.write(ET.tostring(ead_tree, encoding="utf-8", xml_declaration=True))
-                outfile.close()
+
+# function to add auth IDs to matching controlaccess tags
+def write_ids_to_ead(auth_dict, input_dir, output_dir):
+    # the tags we're looking for
+    tags = ['corpname', 'persname']
+
+    # go through every ead in the input directory
+    for ead in tqdm(os.listdir(input_dir)):
+        
+        # only parse xml files in the input directory
+        if ead.endswith(".xml"):
+            
+            # parse the ead xml into an lxml etree for processing
+            tree = etree.parse(os.path.join(input_dir, ead))
+
+            # iterate through every tag inside of a <controlaccess> parent
+            for controlaccess_child in tree.xpath('//controlaccess/*'):
                 
-print '\rExisting authfilenumber attributes deleted.'
-
-print 'Adding new authfilenumber attributes.'
-
-# go through the files
-for filename in os.listdir(ead_path_production):
-    # only look at xml
-    if xml.search(filename):
-        # parse
-        ead_tree = ET.parse(join(ead_path_production, filename))
-        # go through the eads
-        for sub in ead_tree.xpath(controlaccess_xpath):
-            print '\rWorking on it... |',
-            print '\rWorking on it... /',
-            print '\rWorking on it... -',
-            print '\rWorking on it... \\',
-            print '\rWorking on it... |',
-            print '\rWorking on it... /',
-            print '\rWorking on it... -',
-            print '\rWorking on it... -',
-            print '\rWorking on it... \\',
-            if sub.tag == 'persname' and sub.text is not None and '--' not in sub.text:
-                original = sub.text.strip()
-                if original in persnames_dictionary:
-                    persname_xpath = ead_tree.getpath(sub)
-                    persname_update = ead_tree.xpath(persname_xpath)
-                    persname_update[0].attrib['authfilenumber'] = persnames_dictionary[original]
-                    outfile = open(join(ead_path_production, filename), 'w')
-                    outfile.write(ET.tostring(ead_tree, encoding="utf-8", xml_declaration=True))
-                    outfile.close()
-            if sub.tag == 'corpname' and sub.text is not None and '--' not in sub.text:
-                original = sub.text.strip() 
-                if original in corpnames_dictionary:
-                    corpname_xpath = ead_tree.getpath(sub)
-                    corpname_update = ead_tree.xpath(corpname_xpath)
-                    corpname_update[0].attrib['authfilenumber'] = corpnames_dictionary[original]
-                    outfile = open(join(ead_path_production, filename), 'w')
-                    outfile.write(ET.tostring(ead_tree, encoding="utf-8", xml_declaration=True))
-                    outfile.close()
+                # only process the child tag if its tag type is in our list of desired tags
+                if any([controlaccess_child.tag in tag for tag in tags]):
                     
-print '\rNew authfilenumber attributes added'
+                    # if the authority dictionary file has a key for this tag's text, then add that auth data to this tag
+                    if controlaccess_child.text in auth_dict:
+                        auth_key = controlaccess_child.text
+                        lc_address = auth_dict[auth_key]
+
+                        # set the authfilenumber attribute to the Library of Congress authority address
+                        controlaccess_child.attrib['authfilenumber'] = lc_address
+
+            with open(os.path.join(output_dir, ead), mode="w") as f:
+                f.write(etree.tostring(tree))
+
+write_ids_to_ead(auth_dict, input_dir, output_dir)
