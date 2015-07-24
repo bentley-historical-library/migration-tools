@@ -14,7 +14,7 @@ from tqdm import tqdm
 ead_path = 'path/to/eads'
 
 # tag names - set these to the tag types you want to capture the values of
-tag_names = ["persname", "corpname", "geogname", "genreform"]
+tag_names = ["persname", "corpname", "geogname"]
 
 # initializes the dictionary we'll use to hold the tag names
 controlaccess_term_dictionary = {}
