@@ -12,6 +12,7 @@ ead_path = 'C:/Users/eckardm/GitHub/vandura/Real_Masters_all'
 # xpath to where we'll be looking in each ead
 container_xpath = '//container'
 
+# writes headers to output
 with open('C:/Users/Public/Documents/culprits.csv', 'w') as culprits:
     culprits.write('Filename,Container Type,Container Label,Container Text,<odd> text')
 
@@ -33,9 +34,10 @@ for filename in tqdm(os.listdir(ead_path)):
                 cousin_paragraph = ead_tree.xpath(cousin_paragraph_xpath)[0].text
                 # and then check to see if it starts with "(O" or "(o" or "(V" or "(v" for oversize and volume (since we say those two things many different ways), respectively, if it contains the number, and skipping some known exceptions by filename
                 if cousin_paragraph.endswith(' ' + container_element.text + ')') and 'includes' not in cousin_paragraph and container_element.attrib['label'] != 'Box' and filename != 'steerejb.xml' and filename != 'palmera2.xml' and filename != 'kellomic.xml' and filename != 'gmwill.xml' and filename != 'fpresbir.xml' and filename != 'finneyea.xml':
-                    output = '\n' + filename + ',' + str(container_element.attrib).replace("{'type': ", '').replace("{'label': ", '').replace("'", '').replace(' label: ', '').replace('}', '') + ',' + str(container_element.text) + ',' + cousin_paragraph
+                    # generate report
                     with open('C:/Users/Public/Documents/culprits.csv', 'a') as culprits:
-                        culprits.write(output)
+                        culprits.write('\n' + filename + ',' + str(container_element.attrib).replace("{'type': ", '').replace("{'label': ", '').replace("'", '').replace(' label: ', '').replace('}', '') + ',' + str(container_element.text) + ',' + cousin_paragraph)
+                
             # if not, don't worry about it, just continue on
             except:
                 continue
