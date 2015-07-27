@@ -28,12 +28,15 @@ for filename in tqdm(os.listdir(ead_path)):
                     oversize_volume_xpath = ead_tree.getpath(container_element)
                     # then replacing did/container with odd/p to get cousin paragraph xpath
                     cousin_paragraph_xpath = oversize_volume_xpath.replace('did/container', 'odd/p')
-                    # now let's check the text at that xpath
+                    # we'll need to check the text at that xpath, so let's create variable
                     cousin_paragraph = ead_tree.xpath(cousin_paragraph_xpath)[0].text
-                    print filename
-                    print container_element.attrib
-                    print cousin_paragraph_xpath
-                    print cousin_paragraph
+                    # and then check to see if it starts with "(O" or "(o" or "(V" or "(v" for oversize and volume, respectively, and if it contains the number
+                    if (cousin_paragraph.startswith('(O') or cousin_paragraph.startswith('(o') or cousin_paragraph.startswith('(V') or cousin_paragraph.startswith('(v')) and container_element.text in cousin_paragraph:
+                        print filename
+                        print container_element.attrib
+                        print container_element.text
+                        print cousin_paragraph_xpath
+                        print cousin_paragraph + '\n'
             # if not, don't worry about it, just continue on
             except:
                 continue
