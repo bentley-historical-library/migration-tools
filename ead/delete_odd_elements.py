@@ -24,9 +24,13 @@ for filename in tqdm(os.listdir(ead_path)):
             # and try and see if it has a label="Oversize Volume" attribute
             try: 
                 if container_element.attrib['label'] == 'Oversize Volume':
-                    # for now, just print
+                    # find "cousin" paragraph tags in odd, first by getting xpath for that particular container
+                    oversize_volume_xpath = ead_tree.getpath(container_element)
+                    # then replacing did/container with odd/p
+                    cousin_paragraph_xpath = oversize_volume_xpath.replace('did/container', 'odd/p')
                     print filename
                     print container_element.attrib
+                    print cousin_paragraph_xpath
             # if not, don't worry about it, just continue on
             except:
                 continue
