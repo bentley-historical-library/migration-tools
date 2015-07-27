@@ -1,0 +1,132 @@
+[
+  {
+    "op": "core/column-addition",
+    "description": "Create column WORKING at index 6 based on column ORIGINAL using expression grel:value",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "newColumnName": "WORKING",
+    "columnInsertIndex": 6,
+    "baseColumnName": "ORIGINAL",
+    "expression": "grel:value",
+    "onError": "set-to-blank"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column WORKING using expression grel:value.replace(/\\.$/, '')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "WORKING",
+    "expression": "grel:value.replace(/\\.$/, '')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column WORKING using expression grel:value.replace('Family (William Montague Ferry family)', '(Family: Ferry, William Montague, 1796-1867)')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "WORKING",
+    "expression": "grel:value.replace('Family (William Montague Ferry family)', '(Family: Ferry, William Montague, 1796-1867)')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column WORKING using expression grel:value.replace('â€™', '')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "WORKING",
+    "expression": "grel:value.replace('â€™', '')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column WORKING using expression grel:value.replace('Family (Tawas City, Mich.)', '(Family: Whittemore, Gideon Olin, 1800-1863)')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "WORKING",
+    "expression": "grel:value.replace('Family (Tawas City, Mich.)', '(Family: Whittemore, Gideon Olin, 1800-1863)')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column WORKING using expression grel:value.replace('Woodruff Family Papers', 'Woodruff (Family)')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "WORKING",
+    "expression": "grel:value.replace('Woodruff Family Papers', 'Woodruff (Family)')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column WORKING using expression grel:value.replace(/ Family| family/, ' (Family)')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "WORKING",
+    "expression": "grel:value.replace(/ Family| family/, ' (Family)')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Family Name using expression grel:cells['WORKING'].value.split(' (')[0]",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Family Name",
+    "expression": "grel:cells['WORKING'].value.split(' (')[0]",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Qualifier using expression grel:'(' + cells['WORKING'].value.split(' (')[1]",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Qualifier",
+    "expression": "grel:'(' + cells['WORKING'].value.split(' (')[1]",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column Family Name using expression grel:value.replace('Ã©', 'é')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Family Name",
+    "expression": "grel:value.replace('Ã©', 'é')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  }
+]
