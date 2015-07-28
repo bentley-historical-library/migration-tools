@@ -27,13 +27,13 @@
   },
   {
     "op": "core/text-transform",
-    "description": "Text transform on cells in column WORKING using expression grel:value.replace('â€™', '')",
+    "description": "Text transform on cells in column WORKING using expression grel:value.replace('â€™', \"'\")",
     "engineConfig": {
       "mode": "row-based",
       "facets": []
     },
     "columnName": "WORKING",
-    "expression": "grel:value.replace('â€™', '')",
+    "expression": "grel:value.replace('â€™', \"'\")",
     "onError": "keep-original",
     "repeat": false,
     "repeatCount": 10
