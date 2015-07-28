@@ -27,19 +27,6 @@
   },
   {
     "op": "core/text-transform",
-    "description": "Text transform on cells in column WORKING using expression grel:value.replace('Family (William Montague Ferry family)', '(Family: Ferry, William Montague, 1796-1867)')",
-    "engineConfig": {
-      "mode": "row-based",
-      "facets": []
-    },
-    "columnName": "WORKING",
-    "expression": "grel:value.replace('Family (William Montague Ferry family)', '(Family: Ferry, William Montague, 1796-1867)')",
-    "onError": "keep-original",
-    "repeat": false,
-    "repeatCount": 10
-  },
-  {
-    "op": "core/text-transform",
     "description": "Text transform on cells in column WORKING using expression grel:value.replace('â€™', '')",
     "engineConfig": {
       "mode": "row-based",
@@ -53,13 +40,26 @@
   },
   {
     "op": "core/text-transform",
-    "description": "Text transform on cells in column WORKING using expression grel:value.replace('Family (Tawas City, Mich.)', '(Family: Whittemore, Gideon Olin, 1800-1863)')",
+    "description": "Text transform on cells in column WORKING using expression grel:value.replace('Ã©', 'é')",
     "engineConfig": {
       "mode": "row-based",
       "facets": []
     },
     "columnName": "WORKING",
-    "expression": "grel:value.replace('Family (Tawas City, Mich.)', '(Family: Whittemore, Gideon Olin, 1800-1863)')",
+    "expression": "grel:value.replace('Ã©', 'é')",
+    "onError": "keep-original",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column WORKING using expression grel:value.replace('Family (William Montague Ferry family)', '(Family: Ferry, William Montague, 1796-1867)')",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "WORKING",
+    "expression": "grel:value.replace('Family (William Montague Ferry family)', '(Family: Ferry, William Montague, 1796-1867)')",
     "onError": "keep-original",
     "repeat": false,
     "repeatCount": 10
@@ -112,32 +112,6 @@
     },
     "columnName": "Qualifier",
     "expression": "grel:'(' + cells['WORKING'].value.split(' (')[1]",
-    "onError": "keep-original",
-    "repeat": false,
-    "repeatCount": 10
-  },
-  {
-    "op": "core/text-transform",
-    "description": "Text transform on cells in column Family Name using expression grel:value.replace('Ã©', 'é')",
-    "engineConfig": {
-      "mode": "row-based",
-      "facets": []
-    },
-    "columnName": "Family Name",
-    "expression": "grel:value.replace('Ã©', 'é')",
-    "onError": "keep-original",
-    "repeat": false,
-    "repeatCount": 10
-  },
-  {
-    "op": "core/text-transform",
-    "description": "Text transform on cells in column WORKING using expression grel:value.replace('Ã©', 'é')",
-    "engineConfig": {
-      "mode": "row-based",
-      "facets": []
-    },
-    "columnName": "WORKING",
-    "expression": "grel:value.replace('Ã©', 'é')",
     "onError": "keep-original",
     "repeat": false,
     "repeatCount": 10
