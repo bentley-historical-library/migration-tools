@@ -4,9 +4,9 @@ Open Refine
 <famname>
 ---------
 
-Before anything else, you'll need to find any <persname> texts that have accidentally found their way into the <famname> text. This regex seems to get you part of the way there: ^[A-Za-z]+\,[^,]*$
+Before anything else, you'll need to find any <persname> texts that have accidentally found their way into the <famname> text. These change in the EAD! This regex seems to get you part of the way there: ^[A-Za-z]+\,[^,]*$
 
-You'll also need to check for and duplicates from the original CSV. These usually appear when a source hasn't been filled out.
+You'll also need to check for and delete duplicates from the original CSV. These usually appear when a source hasn't been filled out, and you can find them by doing a custom facet on blanks. Of course, if there isn't a duplicate for a row when you filter this way, add the proper source.
 
   1. Create new column WORKING based on column ORIGINAL by filling 404 rows with grel:value
   
@@ -57,9 +57,11 @@ We're done!
 <corpname>
 ----------
 
-Before anything else, you'll need to find any <persname> texts that have accidentally found their way into the <famname> text. This regex gets you part of the way there: ^[A-Za-z]+\,[^,]*$
+Before anything else, you'll need to find any <persname> texts that have accidentally found their way into the <famname> text. These change in the EAD! This regex gets you part of the way there: ^[A-Za-z]+\,[^,]*$
 
-You'll also need to check for and duplicates from the original CSV. These usually appear when a source hasn't been filled out.
+After that, I filtered on things like Company and Inc as well as and and &, starred those rows, and then filtered by no stars on the column I had already filtered on the above regex.
+
+You'll also need to check for and delete duplicates from the original CSV. These usually appear when a source hasn't been filled out, and you can find them by doing a custom facet on blanks. Of course, if there isn't a duplicate for a row when you filter this way, add the proper source.
 
   1. Create new column WORKING based on column ORIGINAL by filling 404 rows with grel:value
   
