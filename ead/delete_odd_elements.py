@@ -18,11 +18,11 @@ container_xpath = '//container'
     # culprits.write('Filename,Container Type,Container Label,Container Text,<odd> text')
 
 # go through all thie files in that directory
-for filename in tqdm(os.listdir(ead_path_test)):
+for filename in tqdm(os.listdir(ead_path_production)):
     # but only look at the xml files
     if filename.endswith('.xml'):
         # create a lxml etree version of the ead
-        ead_tree = ET.parse(join(ead_path_test, filename))
+        ead_tree = ET.parse(join(ead_path_production, filename))
         
         # look at each of the container elements
         for container_element in ead_tree.xpath(container_xpath):
@@ -45,7 +45,7 @@ for filename in tqdm(os.listdir(ead_path_test)):
                     for odd_to_delete in ead_tree.xpath(odd_to_delete_xpath):
                         odd_to_delete.getparent().remove(odd_to_delete)
                     # then by rewriting the xml
-                    outfile = open(join(ead_path_test, filename), 'w')
+                    outfile = open(join(ead_path_production, filename), 'w')
                     outfile.write(ET.tostring(ead_tree, pretty_print=True, encoding="utf-8", xml_declaration=True))
                     outfile.close()
                         
