@@ -44,10 +44,20 @@ Throws the qualifier in the Qualifier column.
   
 Removes the WORKING column we created at the beginning.
 
+  11. Fill down 1 cells in column Source
+  
+Makes sure we aren't missing any sources. These are required in ArchivesSpace.
+
 We're done!
 
 <corpname>
 ----------
+
+  1. Create new column WORKING based on column ORIGINAL by filling 404 rows with grel:value
+  
+We don't want to mess with the originals (or at least we want to have these for reference).
+
+
 
 <persname>
 ----------
