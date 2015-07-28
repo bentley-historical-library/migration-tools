@@ -4,6 +4,8 @@ Open Refine
 <famname>
 ---------
 
+Before anything else, you'll need to find any <persname> texts that have accidentally found their way into the <famname> text.
+
   1. Create new column WORKING based on column ORIGINAL by filling 404 rows with grel:value
   
 We don't want to mess with the originals (or at least we want to have these for reference).
@@ -52,6 +54,8 @@ We're done!
 
 <corpname>
 ----------
+
+Before anything else, you'll need to find any <persname> texts that have accidentally found their way into the <famname> text.
 
   1. Create new column WORKING based on column ORIGINAL by filling 404 rows with grel:value
   
