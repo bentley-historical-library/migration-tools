@@ -61,6 +61,8 @@ Before anything else, you'll need to find any <persname> texts that have acciden
 
 After that, I filtered on things like Company and Inc as well as and and &, starred those rows, and then filtered by no stars on the column I had already filtered on the above regex.
 
+You'll also need to look for <geogname> mistakes.
+
 You'll also need to check for and delete duplicates from the original CSV. These usually appear when a source hasn't been filled out, and you can find them by doing a custom facet on blanks. Of course, if there isn't a duplicate for a row when you filter this way, add the proper source.
 
   1. 
@@ -75,7 +77,11 @@ Gets rid of any ending periods. We weren't consistent about this, plus ArchivesS
   
 Character encoding issues, which we found just by looking and which we are handling on a case-by-case basis. Hopefully we didn't miss any.
   
-  4. Text transform on 1 cells in column WORKING: grel:value.replace('Ã©', 'é')
+  4. Fill down 1 cells in column Source
+  
+Makes sure we aren't missing any sources. These are required in ArchivesSpace.
+
+  5. 
   
 See above.
 
