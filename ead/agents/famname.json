@@ -120,5 +120,14 @@
     "op": "core/column-removal",
     "description": "Remove column WORKING",
     "columnName": "WORKING"
+  },
+  {
+    "op": "core/fill-down",
+    "description": "Fill down cells in column Source",
+    "engineConfig": {
+      "mode": "row-based",
+      "facets": []
+    },
+    "columnName": "Source"
   }
 ]
