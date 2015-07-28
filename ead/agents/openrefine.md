@@ -16,7 +16,7 @@ We don't want to mess with the originals (or at least we want to have these for 
   
 Gets rid of any ending periods. We weren't consistent about this, plus ArchivesSpace handles this when it creates the sort name. Plus, these aren't actually included in LCNAF, I think they're a MARC thing.
   
-  3. Text transform on 1 cells in column WORKING: grel:value.replace('â€™', '')
+  3. Text transform on 1 cells in column WORKING: grel:value.replace('â€™', "'")
   
 Character encoding issues, which we found just by looking and which we are handling on a case-by-case basis. Hopefully we didn't miss any.
   
@@ -63,9 +63,21 @@ After that, I filtered on things like Company and Inc as well as and and &, star
 
 You'll also need to check for and delete duplicates from the original CSV. These usually appear when a source hasn't been filled out, and you can find them by doing a custom facet on blanks. Of course, if there isn't a duplicate for a row when you filter this way, add the proper source.
 
-  1. Create new column WORKING based on column ORIGINAL by filling 404 rows with grel:value
+  1. 
   
 We don't want to mess with the originals (or at least we want to have these for reference).
+
+  2. 
+  
+Gets rid of any ending periods. We weren't consistent about this, plus ArchivesSpace handles this when it creates the sort name. Plus, these aren't actually included in LCNAF, I think they're a MARC thing.
+  
+  3. Text transform on 1 cells in column WORKING: grel:value.replace('â€™', "'")
+  
+Character encoding issues, which we found just by looking and which we are handling on a case-by-case basis. Hopefully we didn't miss any.
+  
+  4. Text transform on 1 cells in column WORKING: grel:value.replace('Ã©', 'é')
+  
+See above.
 
 <persname>
 ----------
