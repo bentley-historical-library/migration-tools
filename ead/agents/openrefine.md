@@ -4,7 +4,9 @@ Open Refine
 <famname>
 ---------
 
-Before anything else, you'll need to find any <persname> texts that have accidentally found their way into the <famname> text.
+Before anything else, you'll need to find any <persname> texts that have accidentally found their way into the <famname> text. This regex seems to get you part of the way there: ^[A-Za-z]+\,[^,]*$
+
+You'll also need to check for and duplicates from the original CSV. These usually appear when a source hasn't been filled out.
 
   1. Create new column WORKING based on column ORIGINAL by filling 404 rows with grel:value
   
@@ -55,13 +57,13 @@ We're done!
 <corpname>
 ----------
 
-Before anything else, you'll need to find any <persname> texts that have accidentally found their way into the <famname> text.
+Before anything else, you'll need to find any <persname> texts that have accidentally found their way into the <famname> text. This regex gets you part of the way there: ^[A-Za-z]+\,[^,]*$
+
+You'll also need to check for and duplicates from the original CSV. These usually appear when a source hasn't been filled out.
 
   1. Create new column WORKING based on column ORIGINAL by filling 404 rows with grel:value
   
 We don't want to mess with the originals (or at least we want to have these for reference).
-
-
 
 <persname>
 ----------
