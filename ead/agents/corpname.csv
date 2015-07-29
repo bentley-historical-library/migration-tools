@@ -1,5 +1,4 @@
 Type,Publish,Authority ID,Source,Rules,ORIGINAL,Primary Part of Name,Subordinate Name 1,Subordinate Name 2,Number,Dates,Qualifier
-corpname,TRUE,http://id.loc.gov/authorities/names/n95065924.html,lcnaf,,Ann Arbor (Mich. : Township)
 corpname,TRUE,,lcnaf,,Ann Arbor Art Association.
 corpname,TRUE,,lcnaf,,Ann Arbor Anti-Substance Abuse Task Force.
 corpname,TRUE,,lcnaf,,University of Michigan. Academics for Affirmative Action and Social Justice.
@@ -15,7 +14,6 @@ corpname,TRUE,,lcnaf,,Ann Arbor Film Festival.
 corpname,TRUE,,lcnaf,,Ann Arbor (Mich.). Fire Department.
 corpname,TRUE,,lcnaf,,Ann Arbor Garden Club.
 corpname,TRUE,,lcnaf,,Ann Arbor Golf and Outing Club.
-corpname,TRUE,,lcnaf,,Ann Arbor (Mich.)
 corpname,TRUE,,lcnaf,,Ann Arbor Hills Association.
 corpname,TRUE,,lcnaf,,Ann Arbor (Mich.). Human Rights Commission.
 corpname,TRUE,,lcnaf,,Ann Arbor Junior Chamber of Commerce (Mich.)
@@ -76,7 +74,6 @@ corpname,TRUE,,lcnaf,,"Ann Arbor Bicentennial Commission (Ann Arbor, Mich.)"
 corpname,TRUE,,lcnaf,,University of Michigan. Dept. of Anatomy and Cell Biology.
 corpname,TRUE,,lcnaf,,University of Michigan. Anatomical Donations Program.
 corpname,TRUE,,lcnaf,,Anna Botsford Bach Home.
-corpname,TRUE,http://id.loc.gov/authorities/names/n79022219.html,lcnaf,,Ann Arbor (Mich.)
 corpname,TRUE,,lcnaf,,"University of Michigan. Department of Atmospheric, Oceanic and Space Sciences."
 corpname,TRUE,,lcnaf,,Alpha Phi Omega. Gamma Pi Chapter (University of Michigan)
 corpname,TRUE,,lcnaf,,Arbornet.
@@ -105,7 +102,6 @@ corpname,TRUE,,lcnaf,,University of Michigan. Band.
 corpname,TRUE,,lcnaf,,University of Michigan. Barbour Scholarship for Oriental Women Committee.
 corpname,TRUE,,lcnaf,,Barry County Health Dept.
 corpname,TRUE,,lcnaf,,"Bates Real Estate (Ann Arbor, Mich.)"
-corpname,TRUE,,lcnaf,,Bay City (Mich.)
 corpname,TRUE,,lcnaf,,"Bay de Noquet Lumber Company (Nahma, Mich.)"
 corpname,TRUE,,lcnaf,,"Bayliss Public Library (Sault Sainte Marie, Mich.)"
 corpname,TRUE,,lcnaf,,"Bay View Club (Fenton, Mich.)."
@@ -596,7 +592,6 @@ corpname,TRUE,,lcnaf,,Michigan Medical Self-Determination Association.
 corpname,TRUE,,lcnaf,,Michigan Natural Areas Council.
 corpname,TRUE,,lcnaf,,Michigan Organization for Human Rights.
 corpname,TRUE,http://id.loc.gov/authorities/names/no2009095185,lcnaf,,Military Order of the Loyal Legion of the United States. Michigan Commandery.
-corpname,TRUE,,lcnaf,,Monroe County (Mich.).
 corpname,TRUE,,lcnaf,,Macomb-Oakland Regional Center.
 corpname,TRUE,,lcnaf,,Mortar Board (Society). Pi Sigma Alpha Chapter (University of Michigan)
 corpname,TRUE,,lcnaf,,"Mosaic Club (Jackson, Mich.)"
@@ -713,7 +708,6 @@ corpname,TRUE,,lcnaf,,Pi Kappa Lambda. Chi Chapter (University of Michigan)
 corpname,TRUE,,lcnaf,,Pi Lambda Theta. Xi chapter (University of Michigan)
 corpname,TRUE,,lcnaf,,Pioneer Band Association.
 corpname,TRUE,,lcnaf,,Public Interest Research Group in Michigan. University of Michigan Affiliate.
-corpname,TRUE,http://id.loc.gov/authorities/names/no96022625.html,lcnaf,,Pittsfield Charter Township (Mich.)
 corpname,TRUE,,lcnaf,,Planned Parenthood of Mid-Michigan.
 corpname,TRUE,,lcnaf,,University of Michigan. Plant Extension Services.
 corpname,TRUE,,lcnaf,,Plaza Land Corporation.
@@ -953,7 +947,6 @@ corpname,TRUE,,lcnaf,,Washtenaw Council on Alcoholism.
 corpname,TRUE,,lcnaf,,Washtenaw County Historic District Commission.
 corpname,TRUE,http://id.loc.gov/authorities/names/n87944249,lcnaf,,Washtenaw County Historical Society.
 corpname,TRUE,,lcnaf,,"Washtenaw Abstract Company (Ann Arbor, Mich.)"
-corpname,TRUE,,lcnaf,,Washtenaw County (Mich.)
 corpname,TRUE,http://id.loc.gov/authorities/names/n88621517,lcnaf,,Washtenaw Intermediate School District.
 corpname,TRUE,,lcnaf,,Washtenaw County Medical Society (Mich.)
 corpname,TRUE,http://id.loc.gov/authorities/names/nr98017950,lcnaf,,Washtenaw Rainbow Action Project.
@@ -2167,7 +2160,6 @@ corpname,TRUE,,lcnaf,,H.B. Hall & Sons.
 corpname,TRUE,,lcnaf,,E.G. Williams & Bro.
 corpname,TRUE,http://id.loc.gov/authorities/names/n80089976,lcnaf,,Hudson's Bay Company.
 corpname,TRUE,http://id.loc.gov/authorities/names/no2013045666,lcnaf,,Chicago and Alton Railroad Company.
-corpname,TRUE,http://id.loc.gov/authorities/names/n87142736,lcnaf,,Chicago Sanitary District.
 corpname,TRUE,,lcnaf,,International Deep Waterways Commission.
 corpname,TRUE,,lcnaf,,American Engineering Council.
 corpname,TRUE,,lcnaf,,Society for the Promotion of Engineering Education (U.S.)
@@ -2345,7 +2337,6 @@ corpname,TRUE,,lcnaf,,"Demmon House (Ann Arbor, Mich.)"
 corpname,TRUE,http://id.loc.gov/authorities/names/n80080481,lcnaf,,Congress of Racial Equality.
 corpname,TRUE,,lcnaf,,Congress of Racial Equality. Detroit (Mich.)
 corpname,TRUE,http://id.loc.gov/authorities/names/n80013191,lcnaf,,Detroit Board of Commerce.
-corpname,TRUE,http://id.loc.gov/authorities/names/n82004295,lcnaf,,Panama Canal (Panama)
 corpname,TRUE,http://id.loc.gov/authorities/names/nr90010198,lcnaf,,University of Michigan. Department of Physics.
 corpname,TRUE,,lcnaf,,University of Michigan. Dept. of Community Dentistry.
 corpname,TRUE,,lcnaf,,University of Michigan. Dental Society.
@@ -3714,7 +3705,6 @@ corpname,TRUE,http://id.loc.gov/authorities/names/n80090279,lcnaf,,United States
 corpname,TRUE,,lcnaf,,Michigan. Justice of the Peace (Lima)
 corpname,TRUE,http://id.loc.gov/authorities/names/n90666978,lcnaf,,Detroit (Mich.). Common Council.
 corpname,TRUE,,lcnaf,,National Council of Juvenile Court Justices.
-corpname,TRUE,,lcnaf,,Wayne County (Mich.)
 corpname,TRUE,,lcnaf,,James H. Lincoln Hall of Juvenile Justice.
 corpname,TRUE,,lcnaf,,Michifish.
 corpname,TRUE,http://id.loc.gov/authorities/names/no2014154125,lcnaf,,Michigan. Special Committee on Prison Disturbances.
@@ -4333,7 +4323,6 @@ corpname,TRUE,,lcnaf,,University of Michigan. Evaluation and Planning Project.
 corpname,TRUE,,lcnaf,,Coalition for a Democratic Majority.
 corpname,TRUE,,lcnaf,,Democratic Party (U.S.). Charter Commission.
 corpname,TRUE,,lcnaf,,Democratic Party (U.S.). Commission on Rules.
-corpname,TRUE,,lcnaf,,Sleeping Bear Dunes National Lakeshore (Mich.)
 corpname,TRUE,http://id.loc.gov/authorities/names/n79071072,lcnaf,,United States. Congress. House. Committee on Interior and Insular Affairs.
 corpname,TRUE,http://id.loc.gov/authorities/names/n79018039,lcnaf,,United States. Congress. House. Committee on the Budget.
 corpname,TRUE,http://id.loc.gov/authorities/names/n50079936,lcnaf,,United States. Congress. Joint Committee on Congressional Operations.
@@ -5361,7 +5350,6 @@ corpname,TRUE,,lcnaf,,"Cadillac Boulevard Presbyterian Church (Detroit, Mich.)"
 corpname,TRUE,,lcnaf,,"Church of the Redeemer Presbyterian Church (Detroit, Mich.)"
 corpname,TRUE,,lcnaf,,"Forest Avenue Presbyterian Church (Detroit, Mich.)"
 corpname,TRUE,,lcnaf,,Hamtramck United Presbyterian Church (Mich.)
-corpname,TRUE,,lcnaf,,Ida (Mich.)
 corpname,TRUE,,lcnaf,,Ida Presbyterian Church (Mich.)
 corpname,TRUE,,lcnaf,,"Lakeshore Presbyterian Church (Port Huron, Mich.)"
 corpname,TRUE,,lcnaf,,"Marston Avenue Presbyterian Church (Detroit, Mich.)"
