@@ -48,6 +48,6 @@ def write_ids_to_ead(auth_dict, input_dir, output_dir):
                         controlaccess_child.attrib['authfilenumber'] = lc_address
 
             with open(os.path.join(output_dir, ead), mode="w") as f:
-                f.write(etree.tostring(tree))
+                f.write(etree.tostring(tree, xml_declaration=True, encoding='utf-8', pretty_print=True))
 
 write_ids_to_ead(auth_dict, input_dir, output_dir)
