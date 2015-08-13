@@ -1,0 +1,151 @@
+Poetry,"['topical', 'genre_form']",genre_form
+Universities and colleges,"['topical', 'geographic']",topical
+"Blue Water Bridge (Port Huron, Mich. and Sarnia, Ont.)","['topical', 'geographic']",geographic
+Chicago,"['geographic', 'topical']",geographic
+Ann Arbor (Mich.),"['geographic', 'topical']",geographic
+Landscape architecture,"['topical', 'geographic']",topical
+Tourism,"['topical', 'geographic']",topical
+New York (State),"['geographic', 'topical']",geographic
+Military camps,"['geographic', 'topical']",topical
+Diaries,"['genre_form', 'topical']",genre_form
+Architectural drawings (visual works),"['genre_form', 'topical']",genre_form
+Michigan,"['geographic', 'topical', 'temporal']",geographic
+Southern states,"['geographic', 'topical']",geographic
+Designs and plans,"['genre_form', 'topical']",genre_form
+Street-railroads,"['topical', 'geographic']",topical
+Religious aspects,"['topical', 'geographic']",topical
+Middle East,"['topical', 'geographic']",geographic
+Cadillac (Mich.),"['geographic', 'topical']",geographic
+Great Lakes Region,"['geographic', 'topical']",geographic
+Social conditions,"['geographic', 'topical']",topical
+Sound recordings,"['genre_form', 'topical']",genre_form
+Motion pictures,"['genre_form', 'geographic', 'topical']",genre_form
+Parades and processions,"['topical', 'geographic']",topical
+Bookstores,"['topical', 'geographic']",topical
+Advertising,"['topical', 'genre_form']",topical
+University of Michigan,"['topical', 'geographic']",topical
+Aerial photographs,"['genre_form', 'topical']",genre_form
+Historic buildings,"['topical', 'geographic']",topical
+Scores and parts,"['topical', 'genre_form']",genre_form
+Paintings,"['genre_form', 'topical']",genre_form
+Boats,"['topical', 'geographic']",topical
+"Societies, etc","['geographic', 'topical', 'temporal']",topical
+Upper Peninsula (Mich.),"['geographic', 'topical']",geographic
+German Americans,"['topical', 'geographic']",topical
+Photographs,"['genre_form', 'topical']",genre_form
+Middle West,"['geographic', 'topical']",genre_form
+Parades,"['topical', 'genre_form']",topical
+Medals,"['genre_form', 'topical']",topical
+Panoramic views,"['genre_form', 'topical']",genre_form
+1929-1933,"['temporal', 'topical']",temporal
+Photograph albums,"['genre_form', 'topical']",genre_form
+Group portraits,"['topical', 'genre_form']",genre_form
+Biochemistry,"['topical', 'geographic']",topical
+Scholarly periodicals,"['genre_form', 'topical']",topical
+Law and legislation,"['topical', 'geographic']",topical
+Love letters,"['genre_form', 'topical']",genre_form
+Medicine,"['topical', 'geographic']",topical
+Grand Rapids (Mich.),"['geographic', 'topical']",geographic
+Korea,"['geographic', 'topical']",geographic
+Architectural drawings,"['genre_form', 'topical']",genre_form
+Illinois,"['geographic', 'topical']",geographic
+Landscape architectural drawings,"['topical', 'genre_form']",genre_form
+Battle Creek,"['geographic', 'topical']",geographic
+Women,"['topical', 'geographic']",topical
+Washington (D.C.),"['geographic', 'topical']",geographic
+Oakland County (Mich.),"['geographic', 'topical']",geographic
+Societies and clubs,"['topical', 'geographic']",topical
+Cemeteries,"['topical', 'geographic']",topical
+Central America,"['geographic', 'topical']",geographic
+Student aid,"['topical', 'geographic']",topical
+Music,"['topical', 'genre_form']",topical
+Records and correspondence,"['topical', 'genre_form']",genre_form
+1933-1945,"['temporal', 'topical']",temporal
+Exhibitions,"['topical', 'genre_form']",topical
+Business enterprises,"['topical', 'geographic']",topical
+Attitudes,"['geographic', 'topical']",topical
+India,"['geographic', 'topical']",geographic
+Chippewa Tribe,"['topical', 'geographic']",topical
+Genealogy,"['topical', 'genre_form']",topical
+Soviet Union,"['geographic', 'topical']",geographic
+Art,"['topical', 'genre_form']",genre_form
+Detroit (Mich.),"['geographic', 'topical']",geographic
+Design and construction,"['topical', 'geographic']",topical
+Admission,"['topical', 'geographic']",topical
+Religious life,"['topical', 'geographic']",topical
+Organizations,"['topical', 'geographic']",topical
+Education,"['topical', 'geographic']",topical
+Periodicals,"['topical', 'genre_form']",genre_form
+Oral history,"['topical', 'genre_form']",genre_form
+Church history,"['topical', 'geographic']",topical
+Temperance,"['topical', 'geographic']",topical
+American,"['topical', 'geographic']",geographic
+Catalogs,"['genre_form', 'topical']",genre_form
+"Civil War, 1861-1865","['temporal', 'topical']",temporal
+Folklore,"['topical', 'genre_form']",topical
+Guidebooks,"['genre_form', 'topical']",genre_form
+Saugatuck (Mich.),"['geographic', 'topical']",geographic
+Conway (Mich.),"['geographic', 'topical']",geographic
+Streets,"['topical', 'geographic']",topical
+Bibliography,"['topical', 'geographic']",topical
+Norway,"['geographic', 'topical']",geographic
+Postcards,"['genre_form', 'topical']",genre_form
+"Societies, etc.","['topical', 'geographic']",topical
+China,"['geographic', 'topical']",geographic
+Student unions,"['geographic', 'topical']",topical
+Business records,"['topical', 'genre_form']",genre_form
+Offices,"['topical', 'geographic']",topical
+Japan,"['geographic', 'topical']",geographic
+Psychology,"['topical', 'geographic']",topical
+Willow Run (Mich.),"['geographic', 'topical']",geographic
+Politics and government,"['topical', 'geographic']",topical
+Plants,"['topical', 'geographic']",topical
+Soldiers,"['topical', 'geographic', 'genre_form']",topical
+Publicity,"['topical', 'genre_form']",topical
+Churches,"['topical', 'geographic']",topical
+Brighton (Mich.),"['geographic', 'topical']",geographic
+"Personal narratives, American","['topical', 'genre_form']",topical
+Dwellings,"['topical', 'geographic']",topical
+Cross Village,"['geographic', 'topical']",geographic
+Opera,"['topical', 'genre_form']",genre_form
+East Asia,"['geographic', 'topical']",geographic
+Marshall (Mich.),"['geographic', 'topical']",geographic
+Research,"['topical', 'genre_form']",topical
+Surgery,"['topical', 'geographic']",topical
+Travel,"['topical', 'genre_form']",topical
+Banks,"['topical', 'genre_form']",topical
+Congresses,"['topical', 'genre_form']",topical
+Holography,"['topical', 'genre_form']",topical
+Sermons,"['genre_form', 'topical', 'geographic']",genre_form
+United States,"['geographic', 'topical']",geographic
+Newspapers,"['topical', 'genre_form']",genre_form
+Bavaria (Germany),"['topical', 'geographic']",geographic
+1945-1953,"['temporal', 'topical']",temporal
+Ypsilanti (Mich.),"['geographic', 'topical']",geographic
+Germany,"['geographic', 'topical']",geographic
+Political activity,"['topical', 'geographic']",topical
+Ann Arbor,"['geographic', 'temporal', 'topical']",geographic
+Ferndale (Mich.),"['geographic', 'topical']",geographic
+Public schools,"['topical', 'geographic']",topical
+Battle Creek (Mich.),"['geographic', 'topical']",geographic
+Latin America,"['topical', 'geographic']",geographic
+Interviews,"['genre_form', 'topical']",genre_form
+Governors,"['topical', 'geographic']",topical
+Arts and crafts,"['topical', 'geographic']",topical
+Port Huron (Mich.),"['geographic', 'topical']",geographic
+Petersburg (Va.),"['topical', 'geographic']",geographic
+Finance,"['geographic', 'topical']",topical
+Students,"['topical', 'geographic']",topical
+Faculty,"['topical', 'geographic']",topical
+Manuscripts,"['genre_form', 'topical']",genre_form
+Maps,"['genre_form', 'topical']",genre_form
+Social life and customs,"['topical', 'temporal']",topical
+"Trials, litigation, etc","['topical', 'genre_form']",topical
+Missions,"['topical', 'geographic']",topical
+Songs and music,"['genre_form', 'topical', 'geographic']",topical
+Portraits,"['genre_form', 'topical']",genre_form
+Student notebooks,"['topical', 'genre_form']",topical
+Sources,"['topical', 'genre_form']",topical
+Correspondence,"['genre_form', 'topical']",genre_form
+Calendars,"['genre_form', 'topical']",genre_form
+Regulations,"['genre_form', 'topical']",topical
